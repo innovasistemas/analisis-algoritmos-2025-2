@@ -1,3 +1,5 @@
+import math
+
 name = "Ana"
 lastName = " Gil"
 fullName = name + lastName
@@ -17,3 +19,8 @@ else:
 
 x = False
 print(f"x={x}")
+
+print("2^10=", 2 ** 10)
+print("5^3=", math.pow(5, 3))
+print("RaízCuadrada(64)=" + str(math.sqrt(64)))
+print("|-5|=", abs(-5))

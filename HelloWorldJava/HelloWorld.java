@@ -11,6 +11,9 @@ public class HelloWorld
         System.out.println("Nombre: " + fullName);
         boolean x = true;
         System.out.println("x: " + x);
+        System.out.println("3^4=" + Math.pow(3, 4));
+        System.out.println("RaízCuadrada(64)=" + Math.sqrt(64));
+        System.out.println("|-5|=" + Math.abs(-5));
 
         
     }
