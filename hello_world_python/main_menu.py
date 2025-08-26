@@ -25,8 +25,9 @@ while option != "0":
     print("-" * 14)
     print("0. Finalizar")
     print("1. Sumatoria números naturales")
-    print("2. Productoria")
-    print("3. Factorial")
+    print("2. Sumatoria números naturales Gauss")
+    print("3. Productoria")
+    print("4. Factorial")
     print("Ingrese su opción: ", end = "")
     option = input()
     match option:
@@ -34,8 +35,14 @@ while option != "0":
             print("Programa finalizado")
         case "1":
             n = int(input("Ingrese un número natural: "))
-            if n >= 0 :
+            if n > 0 :
                 print(f"Suma de 1 a {n}: ", oper.sum_natural(n))
+            else:
+                print("Valor no válido para n")
+        case "2":
+            n = int(input("Ingrese un número natural: "))
+            if n > 0 :
+                print(f"Suma de 1 a {n}: ", oper.sum_naturals_gauss(n))
             else:
                 print("Valor no válido para n")
 

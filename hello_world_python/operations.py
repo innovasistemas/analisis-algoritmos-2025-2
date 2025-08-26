@@ -9,3 +9,6 @@ class operations:
         for i in range(1, n + 1, 1):
             s += i
         return s
+    
+    def sum_naturals_gauss(self, n) -> int:
+        return n * (n + 1) / 2

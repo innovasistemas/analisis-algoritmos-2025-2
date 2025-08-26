@@ -2,17 +2,69 @@ package com.packages.operations;
 
 public class Operations 
 {
+    private static final int T = 50; 
+    private int vec[] = new int[T];
+    private int n;
+
     public Operations()
     {
+        this.n = 0;
+    }  
 
+    public static int getT() 
+    {
+        return T;
     }
 
-    public int sumNaturals(int n)
+    public int[] getVec() 
+    {
+        return vec;
+    }
+
+    public void setVec(int[] vec) 
+    {
+        this.vec = vec;
+    }
+
+    public int getN() 
+    {
+        return n;
+    }
+
+    public void setN(int n) 
+    {
+        this.n = n;
+    }
+
+    public int sumNaturals()
     {
         int s = 0;
         for (int i = 1; i <= n; i++) {
             s += i;
         }
         return s;
+    }
+
+    public int productVector()
+    {
+        int p = 1;
+        for (int i = 0; i < n; i++) {
+            p *= this.vec[i];
+        }
+        return p;
+    }
+
+    public void createVector()
+    {
+        for (int i = 0; i < n; i++) {
+            vec[i] = (int)(Math.random() * 100);
+        }
+    }
+
+    public void showVector()
+    {
+        for (int i = 0; i < n; i++) {
+            System.out.print(this.vec[i] + " | ");
+        }
     }
 }
