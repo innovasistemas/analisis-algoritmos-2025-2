@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import com.packages.operations.*;
+import com.packages.arrays.*;
 
 public class MainMenu 
 {
@@ -22,6 +23,7 @@ public class MainMenu
             System.out.println("4. Factorial");
             System.out.println("5. Crear vector");
             System.out.println("6. Mostrar vector");
+            System.out.println("7. Matrices");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -62,11 +64,55 @@ public class MainMenu
                         System.out.println("Debe crear el vector");
                     }
                     break;
+                case "7":
+                    menuMatrix();
+                    break;
                 default:
                     System.out.println("Opción no válida");
                     break;
             }
 
+        } while (!option.equals("0"));
+    }
+
+    public static void menuMatrix()
+    {
+        String option;
+        Matrix matrix = new Matrix();
+        do {
+            System.out.println();
+            System.out.println("----------------");
+            System.out.println("Submenú Matrices");
+            System.out.println("----------------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Crear");
+            System.out.println("2. Mostrar");
+            System.out.print("Ingrese su opción: ");
+            option = input.nextLine();
+
+            switch (option) {
+                case "0":
+                    break;
+                case "1":
+                    System.out.print("Número filas: ");
+                    matrix.setM(input.nextInt());
+                    input.nextLine(); // Limpia el búffer
+                    System.out.print("Número columnas: ");
+                    matrix.setN(input.nextInt());
+                    input.nextLine(); // Limpia el búffer
+                    matrix.fillMatrix();
+                    break;
+                case "2":
+                    if (matrix.getM() > 0 && matrix.getN() > 0) {
+                        matrix.showMatrix();
+                    } else {
+                        System.out.println("No ha creado la matriz");
+                    }
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
         } while (!option.equals("0"));
     }
 }
