@@ -59,5 +59,29 @@ public class Matrix
         }
     }
 
+    public void mainDiagonal()
+    {
+        for (int i = 0; i < n; i++) {
+            System.out.print(mat[i][i] + "\t");
+        }
+    }
+
+    public void secondaryDiagonal()
+    {
+        for (int i = 0; i < n; i++) {
+            System.out.print(mat[i][n - i - 1] + "\t");
+        }
+    }
+
+    public void lowerTriangular()
+    {
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print(mat[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
      
 }

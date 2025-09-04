@@ -87,6 +87,9 @@ public class MainMenu
             System.out.println("0. Regresar");
             System.out.println("1. Crear");
             System.out.println("2. Mostrar");
+            System.out.println("3. Mostrar diagonal principal");
+            System.out.println("4. Mostrar diagonal secundaria");
+            System.out.println("5. Triangular inferior");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -105,6 +108,26 @@ public class MainMenu
                 case "2":
                     if (matrix.getM() > 0 && matrix.getN() > 0) {
                         matrix.showMatrix();
+                    } else {
+                        System.out.println("No ha creado la matriz");
+                    }
+                    break;
+                case "3":
+                    if (matrix.getM() > 0 && matrix.getM() == matrix.getN()) {
+                        matrix.mainDiagonal();
+                    } else {
+                        System.out.println("No ha creado la matriz");
+                    }
+                    break;
+                case "4":
+                    if (matrix.getM() > 0 && matrix.getM() == matrix.getN()) {
+                        matrix.secondaryDiagonal();
+                    } else {
+                        System.out.println("No ha creado la matriz");
+                    }
+                case "5":
+                    if (matrix.getM() > 0 && matrix.getM() == matrix.getN()) {
+                        matrix.lowerTriangular();
                     } else {
                         System.out.println("No ha creado la matriz");
                     }
