@@ -1,4 +1,5 @@
 from operations import operations
+from primes import primes
 
 BLACK = '\033[30m'
 RED = '\033[31m'
@@ -17,6 +18,39 @@ BRIGHT_MAGENTA = '\033[95m'
 BRIGHT_CYAN = '\033[96m'
 WHITE = '\033[97m'
 
+
+def menu_primes():
+    option = ""
+    prime = primes()
+
+    while option != "0":
+        print("-" * 14)
+        print(GREEN + "Submenú primos" + WHITE)
+        print("-" * 14)
+        print("0. Regresar")
+        print("1. Primos 1")
+        print("2. Primos 2 (mejorado)")
+        print("Ingrese su opción: ", end = "")
+        option = input()
+        match option:
+            case "0":
+                pass
+            case "1":
+                n = int(input("Ingrese un número natural: "))
+                if n > 0 :
+                    if prime.prime_number(n):
+                        print(f"{n} es primo")
+                    else:
+                        print(f"{n} no es primo")
+                else:
+                    print("Valor no válido para n")
+                
+            case _:
+                print(f"{RED}Opción no válida{WHITE}")
+
+
+
+
 option = ""
 oper = operations()
 while option != "0":
@@ -28,6 +62,7 @@ while option != "0":
     print("2. Sumatoria números naturales Gauss")
     print("3. Productoria")
     print("4. Factorial")
+    print("5. Números primos")
     print("Ingrese su opción: ", end = "")
     option = input()
     match option:
@@ -45,6 +80,8 @@ while option != "0":
                 print(f"Suma de 1 a {n}: ", oper.sum_naturals_gauss(n))
             else:
                 print("Valor no válido para n")
-
+        case "5":
+            menu_primes()
         case _:
             print(f"{RED}Opción no válida{WHITE}")
+
