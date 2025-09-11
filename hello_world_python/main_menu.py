@@ -1,3 +1,4 @@
+import time
 from operations import operations
 from primes import primes
 
@@ -30,6 +31,8 @@ def menu_primes():
         print("0. Regresar")
         print("1. Primos 1")
         print("2. Primos 2 (mejorado)")
+        print("3. Primos 3 (más mejorado)")
+        print("4. Primos 4 (mejorado++)")
         print("Ingrese su opción: ", end = "")
         option = input()
         match option:
@@ -38,13 +41,59 @@ def menu_primes():
             case "1":
                 n = int(input("Ingrese un número natural: "))
                 if n > 0 :
+                    start = time.time()
                     if prime.prime_number(n):
                         print(f"{n} es primo")
                     else:
                         print(f"{n} no es primo")
+                    end = time.time()
+                    print(f"Tiempo inicial: {start}")
+                    print(f"Tiempo final: {end}")
+                    print(f"Tiempo ejecución: {end - start}")
                 else:
                     print("Valor no válido para n")
-                
+            case "2":
+                n = int(input("Ingrese un número natural: "))
+                if n > 0 :
+                    start = time.time()
+                    if prime.prime_number2(n):
+                        print(f"{n} es primo")
+                    else:
+                        print(f"{n} no es primo")
+                    end = time.time()
+                    print(f"Tiempo inicial: {start}")
+                    print(f"Tiempo final: {end}")
+                    print(f"Tiempo ejecución: {end - start}")
+                else:
+                    print("Valor no válido para n")
+            case "3":
+                n = int(input("Ingrese un número natural: "))
+                if n > 0 :
+                    start = time.time()
+                    if prime.prime_number3(n):
+                        print(f"{n} es primo")
+                    else:
+                        print(f"{n} no es primo")
+                    end = time.time()
+                    print(f"Tiempo inicial: {start}")
+                    print(f"Tiempo final: {end}")
+                    print(f"Tiempo ejecución: {end - start}")
+                else:
+                    print("Valor no válido para n")
+            case "4":
+                n = int(input("Ingrese un número natural: "))
+                if n > 0 :
+                    start = time.time()
+                    if prime.prime_number4(n):
+                        print(f"{n} es primo")
+                    else:
+                        print(f"{n} no es primo")
+                    end = time.time()
+                    print(f"Tiempo inicial: {start}")
+                    print(f"Tiempo final: {end}")
+                    print(f"Tiempo ejecución: {end - start}")
+                else:
+                    print("Valor no válido para n")
             case _:
                 print(f"{RED}Opción no válida{WHITE}")
 
@@ -78,6 +127,14 @@ while option != "0":
             n = int(input("Ingrese un número natural: "))
             if n > 0 :
                 print(f"Suma de 1 a {n}: ", oper.sum_naturals_gauss(n))
+            else:
+                print("Valor no válido para n")
+        case "3":
+            print(f"Productoria [2, 6, 7, 1]: {oper.product([2, 6, 7, 1])}")
+        case "4":
+            n = int(input("Ingrese un número entero positivo: "))
+            if n >= 0 :
+                print(f"{n}! = ", oper.factorial(n))
             else:
                 print("Valor no válido para n")
         case "5":
