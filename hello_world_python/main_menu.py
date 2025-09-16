@@ -23,6 +23,7 @@ WHITE = '\033[97m'
 def menu_primes():
     option = ""
     prime = primes()
+    P = [2]
 
     while option != "0":
         print("-" * 14)
@@ -33,6 +34,8 @@ def menu_primes():
         print("2. Primos 2 (mejorado)")
         print("3. Primos 3 (más mejorado)")
         print("4. Primos 4 (mejorado++)")
+        print("5. Nuevo primo Euclides")
+        print("6. Nuevo primo sin Euclides")
         print("Ingrese su opción: ", end = "")
         option = input()
         match option:
@@ -94,6 +97,24 @@ def menu_primes():
                     print(f"Tiempo ejecución: {end - start}")
                 else:
                     print("Valor no válido para n")
+            case "5":
+                print(f"Conjunto de primos actual: {P}")
+                start = time.time()
+                P.append(prime.new_prime_Euclides(P))
+                print(f"Conjunto de primos con nuevo elemento: {P}")
+                end = time.time()
+                print(f"Tiempo inicial: {start}")
+                print(f"Tiempo final: {end}")
+                print(f"Tiempo ejecución: {end - start}")
+            case "6":
+                print(f"Conjunto de primos actual: {P}")
+                start = time.time()
+                P.append(prime.new_prime_without_Euclides(P))
+                print(f"Conjunto de primos con nuevo elemento: {P}")
+                end = time.time()
+                print(f"Tiempo inicial: {start}")
+                print(f"Tiempo final: {end}")
+                print(f"Tiempo ejecución: {end - start}")
             case _:
                 print(f"{RED}Opción no válida{WHITE}")
 
