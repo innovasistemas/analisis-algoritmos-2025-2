@@ -67,4 +67,23 @@ public class Operations
             System.out.print(this.vec[i] + " | ");
         }
     }
+
+    public int searchSecuencialVector(int datum)
+    {
+        int pos = -1; //Supuesto: dato no está
+        int i = 0;
+        while (i < n && pos == -1) {
+            if (vec[i] == datum) {
+                pos = i;
+            } else {
+                i++;
+            }
+        }
+        return pos;
+    }
+
+    public void updateVector(int pos, int datum)
+    {
+        vec[pos] = datum;
+    }
 }

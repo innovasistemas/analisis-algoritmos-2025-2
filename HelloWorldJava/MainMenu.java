@@ -9,6 +9,7 @@ public class MainMenu
     public static void main(String args[])
     {
         String option;
+        int datum, position;
         Operations oper = new Operations();
 
         do {
@@ -24,6 +25,8 @@ public class MainMenu
             System.out.println("5. Crear vector");
             System.out.println("6. Mostrar vector");
             System.out.println("7. Matrices");
+            System.out.println("8. Buscar vector");
+            System.out.println("9. Modificar vector");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -66,6 +69,40 @@ public class MainMenu
                     break;
                 case "7":
                     menuMatrix();
+                    break;
+                case "8":
+                    if (oper.getN() > 0) {
+                        System.out.println("Dato a buscar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        position = oper.searchSecuencialVector(datum);
+                        if (position != -1) {
+                            System.out.println("Dato encontrado en posición " + position);
+                        } else {
+                            System.out.println("Dato no encontrado");
+                        }
+                    } else {
+                        System.out.println("Debe crear el vector");
+                    }
+                    break;
+                case "9":
+                    if (oper.getN() > 0) {
+                        System.out.println("Dato a modificar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        position = oper.searchSecuencialVector(datum);
+                        if (position != -1) {
+                            System.out.println("Nuevo dato: ");
+                            datum = input.nextInt();
+                            input.nextLine();
+                            oper.updateVector(position, datum);
+                            System.out.println("Dato actualizado en posición" + position);
+                        } else {
+                            System.out.println("Dato no encontrado");
+                        }
+                    } else {
+                        System.out.println("Debe crear el vector");
+                    }
                     break;
                 default:
                     System.out.println("Opción no válida");
