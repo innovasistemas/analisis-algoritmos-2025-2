@@ -2,7 +2,7 @@ package com.packages.operations;
 
 public class Operations 
 {
-    private static final int T = 50; 
+    private static final int T = 1000000; 
     private int vec[] = new int[T];
     private int n;
 
@@ -82,8 +82,43 @@ public class Operations
         return pos;
     }
 
+    public int binarySearchVector(int datum) 
+    {
+        int lowerLimit, upperLimit, pos, centralPos;
+        pos = -1;
+        lowerLimit = 0;
+        upperLimit = n;
+        while (lowerLimit <= upperLimit && pos == -1) {
+            centralPos = (lowerLimit + upperLimit) / 2;
+            if (vec[centralPos] == datum) {
+                pos = centralPos;
+            } else {
+                if (datum > vec[centralPos]) {
+                    lowerLimit = centralPos + 1;
+                } else {
+                    upperLimit = centralPos - 1;
+                }
+            }
+        }
+        return pos;
+    }
+
     public void updateVector(int pos, int datum)
     {
         vec[pos] = datum;
+    }
+
+    public void bubbleSortVector()
+    {
+        int aux;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (vec[i] > vec[j]) {
+                    aux = vec[i];
+                    vec[i] = vec[j];
+                    vec[j] = aux;
+                }
+            }
+        }
     }
 }

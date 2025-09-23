@@ -27,6 +27,8 @@ public class MainMenu
             System.out.println("7. Matrices");
             System.out.println("8. Buscar vector");
             System.out.println("9. Modificar vector");
+            System.out.println("10. Ordenar vector");
+            System.out.println("11. Buscar vector (binaria)");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -97,6 +99,29 @@ public class MainMenu
                             input.nextLine();
                             oper.updateVector(position, datum);
                             System.out.println("Dato actualizado en posición" + position);
+                        } else {
+                            System.out.println("Dato no encontrado");
+                        }
+                    } else {
+                        System.out.println("Debe crear el vector");
+                    }
+                    break;
+                case "10":
+                    if (oper.getN() > 0) {
+                        oper.bubbleSortVector();
+                        System.out.println("Vector ordenado");
+                    } else {
+                        System.out.println("Debe crear el vector");
+                    }
+                    break;
+                case "11":
+                    if (oper.getN() > 0) {
+                        System.out.println("Dato a buscar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        position = oper.binarySearchVector(datum);
+                        if (position != -1) {
+                            System.out.println("Dato encontrado en posición " + position);
                         } else {
                             System.out.println("Dato no encontrado");
                         }
