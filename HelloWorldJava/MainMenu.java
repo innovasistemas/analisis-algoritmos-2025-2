@@ -210,6 +210,7 @@ public class MainMenu
     {
         String option;
         SimpleLinkedList lsl = new SimpleLinkedList();
+        DoubleLinkedList ldl = new DoubleLinkedList();
         int datum, datumRef;
         do {
             System.out.println();
@@ -223,6 +224,11 @@ public class MainMenu
             System.out.println("4. Buscar dirección");
             System.out.println("5. Insertar dato antes referencia");
             System.out.println("6. Eliminar dato");
+            System.out.println("7. Agregar nodo LDL por el final");
+            System.out.println("8. Mostrar LDL");
+            System.out.println("9. Buscar nodo LDL");
+            System.out.println("10. Eliminar nodo LDL");
+            System.out.println("11. Insertar dato LDL después referencia");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -291,6 +297,67 @@ public class MainMenu
                         lsl.deleteNodeLSL(datum);
                     } else {
                         System.out.println("No ha creado la LSL");
+                    }
+                    break;
+                case "7":
+                    System.out.print("Dato lista LDL: ");
+                    ldl.createEndLDL(input.nextInt());
+                    input.nextLine(); // Limpia el búffer
+                    break;
+                case "8":
+                    if (ldl.head != null) {
+                        ldl.showLDL();
+                    } else {
+                        System.out.println("No ha creado la LDL");
+                    }
+                    break;
+                case "9":
+                    if (ldl.head != null) {
+                        System.out.print("Dato a buscar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        NodeLDL p = ldl.searchNodeLDL(datum);
+                        if (p != null) {
+                            System.out.println("Dato encontrado en dirección " + p);
+                        } else {
+                            System.out.println("Dato no encontrado");
+                        }
+                    } else {
+                        System.out.println("No ha creado la LDL");
+                    }
+                    break;
+                case "10":
+                    if (ldl.head != null) {
+                        System.out.print("Dato a eliminar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        NodeLDL p = ldl.searchNodeLDL(datum);
+                        if (p != null) {
+                            ldl.deleteNodeLDL(p);
+                            System.out.println("Dato eliminado de la LDL");
+                        } else {
+                            System.out.println("No existe el dato en la LDL");
+                        }
+                    } else {
+                        System.out.println("No ha creado la LDL");
+                    }
+                    break;
+                case "11":
+                    if (ldl.head != null) {
+                        System.out.print("Dato referencia: ");
+                        datumRef = input.nextInt();
+                        input.nextLine();
+                        NodeLDL p = ldl.searchNodeLDL(datumRef);
+                        if (p != null) {
+                            System.out.print("Dato a insertar: ");
+                            datum = input.nextInt();
+                            input.nextLine();
+                            ldl.insertNodeAfterRef(p, datum);
+                        } else {
+                            System.out.println("No existe el dato en la LDL");
+                        }
+                    } else {
+                        System.out.println("No ha creado la LDL");
                     }
                     break;
                 default:
