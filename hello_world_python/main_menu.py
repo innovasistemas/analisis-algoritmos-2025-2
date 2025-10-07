@@ -133,6 +133,7 @@ while option != "0":
     print("3. Productoria")
     print("4. Factorial")
     print("5. Números primos")
+    print("6. Exponencial(x)")
     print("Ingrese su opción: ", end = "")
     option = input()
     match option:
@@ -160,6 +161,13 @@ while option != "0":
                 print("Valor no válido para n")
         case "5":
             menu_primes()
+        case "6":
+            n = int(input("Ingrese un número entero positivo: "))
+            if n >= 0 :
+                x = float(input("Ingrese el número real x: "))
+                print(f"exp({x})=", oper.exponential(n, x))
+            else:
+                print("Valor no válido para n")
         case _:
             print(f"{RED}Opción no válida{WHITE}")
 

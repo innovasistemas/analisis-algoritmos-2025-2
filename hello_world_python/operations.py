@@ -24,3 +24,9 @@ class operations:
         for i in range(1, n + 1, 1):
             f *= i
         return f
+    
+    def exponential(self, n, x) -> float:
+        s = 0
+        for i in range(0, n + 1, 1):
+            s += x ** i / self.factorial(i)
+        return s
