@@ -2,6 +2,7 @@ import java.util.Scanner;
 import com.packages.operations.*;
 import com.packages.arrays.*;
 import com.packages.linked_list.*;
+import com.packages.stacks_queues.*;
 
 public class MainMenu 
 {
@@ -31,6 +32,7 @@ public class MainMenu
             System.out.println("10. Ordenar vector");
             System.out.println("11. Buscar vector (binaria)");
             System.out.println("12. Listas ligadas");
+            System.out.println("13. Pilas y colas");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -133,6 +135,9 @@ public class MainMenu
                     break;
                 case "12":
                     menuLinkedList();
+                    break;
+                case "13":
+                    menuStackQueue();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -358,6 +363,58 @@ public class MainMenu
                         }
                     } else {
                         System.out.println("No ha creado la LDL");
+                    }
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!option.equals("0"));
+    }
+
+    public static void menuStackQueue()
+    {
+        String option;
+        int datum;
+        Stacks stack = new Stacks();
+
+        do {
+            System.out.println();
+            System.out.println("---------------------");
+            System.out.println("Submenú Pilas y Colas");
+            System.out.println("---------------------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Apilar");
+            System.out.println("2. Mostrar pila");
+            System.out.println("3. Desapilar");
+            System.out.print("Ingrese su opción: ");
+            option = input.nextLine();
+
+            switch (option) {
+                case "0":
+                    break;
+                case "1":
+                    if (stack.TOP < 50) {
+                        System.out.print("Dato a apilar: ");
+                        datum = input.nextInt();
+                        input.nextLine(); // Limpia el búffer
+                        stack.stacking(datum);
+                    } else {
+                        System.out.println("Desbordamiento de pila");
+                    }
+                    break;
+                case "2":
+                    if (stack.TOP > 0) {
+                        stack.showStack();
+                    } else {
+                        System.out.println("No ha creado la pila");
+                    }
+                    break;
+                case "3":
+                    if (stack.TOP > 0) {
+                        System.out.println("Elemento desapilado: " + stack.unStacking());
+                    } else {
+                        System.out.println("Subdesbordamiento de pila");
                     }
                     break;
                 default:
