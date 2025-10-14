@@ -30,4 +30,18 @@ public class Stacks
             System.out.println(stack[i]);
         }
     }
+
+    public int searchStack(int datum)
+    {
+        int pos = -1; //Supuesto: dato no está
+        int i = 0;
+        while (i < TOP && pos == -1) {
+            if (stack[i] == datum) {
+                pos = i;
+            } else {
+                i++;
+            }
+        }
+        return pos;
+    }
 }

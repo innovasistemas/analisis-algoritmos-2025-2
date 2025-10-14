@@ -3,6 +3,7 @@ import com.packages.operations.*;
 import com.packages.arrays.*;
 import com.packages.linked_list.*;
 import com.packages.stacks_queues.*;
+import com.packages.recursivity.*;
 
 public class MainMenu 
 {
@@ -33,6 +34,7 @@ public class MainMenu
             System.out.println("11. Buscar vector (binaria)");
             System.out.println("12. Listas ligadas");
             System.out.println("13. Pilas y colas");
+            System.out.println("14. Recursividad");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -138,6 +140,9 @@ public class MainMenu
                     break;
                 case "13":
                     menuStackQueue();
+                    break;
+                case "14":
+                    menuRecursivity();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -377,6 +382,7 @@ public class MainMenu
         String option;
         int datum;
         Stacks stack = new Stacks();
+        Queues queue = new Queues();
 
         do {
             System.out.println();
@@ -387,6 +393,9 @@ public class MainMenu
             System.out.println("1. Apilar");
             System.out.println("2. Mostrar pila");
             System.out.println("3. Desapilar");
+            System.out.println("4. Encolar");
+            System.out.println("5. Mostrar cola");
+            System.out.println("6. Desencolar");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -416,6 +425,75 @@ public class MainMenu
                     } else {
                         System.out.println("Subdesbordamiento de pila");
                     }
+                    break;
+                case "4":
+                    if (queue.TOP < 50) {
+                        System.out.print("Dato a encolar: ");
+                        datum = input.nextInt();
+                        input.nextLine(); // Limpia el búffer
+                        queue.push(datum);
+                    } else {
+                        System.out.println("Desbordamiento de cola");
+                    }
+                    break;
+                case "5":
+                    if (queue.TOP > 0) {
+                        queue.showQueue();
+                    } else {
+                        System.out.println("No ha creado la cola");
+                    }
+                    break;
+                case "6":
+                    if (queue.TOP > 0) {
+                        System.out.println("Elemento desencolado: " + queue.pop());
+                    } else {
+                        System.out.println("Subdesbordamiento de cola");
+                    }
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!option.equals("0"));
+    }
+
+    public static void menuRecursivity()
+    {
+        String option;
+        int datum;
+        
+
+        do {
+            System.out.println();
+            System.out.println("--------------------");
+            System.out.println("Submenú Recursividad");
+            System.out.println("--------------------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Factorial");
+            System.out.println("2. Sumatoria");
+            System.out.println("3. Fibonacci");
+            System.out.print("Ingrese su opción: ");
+            option = input.nextLine();
+
+            switch (option) {
+                case "0":
+                    break;
+                case "1":
+                    System.out.print("Dato n: ");
+                    datum = input.nextInt();
+                    input.nextLine(); // Limpia el búffer
+                    System.out.println("n! = " + Recursion.factorialRecursive(datum));
+                    break;
+                case "2":
+                    System.out.print("Dato n: ");
+                    datum = input.nextInt();
+                    input.nextLine(); // Limpia el búffer
+                    System.out.println("Sumatoria(1, n) = " + Recursion.sumNaturalsRecursive(datum));
+                case "3":
+                    System.out.print("Dato n: ");
+                    datum = input.nextInt();
+                    input.nextLine(); // Limpia el búffer
+                    System.out.println("Fibonacci = " + Recursion.fibonacciRecursive(datum));
                     break;
                 default:
                     System.out.println("Opción no válida");
