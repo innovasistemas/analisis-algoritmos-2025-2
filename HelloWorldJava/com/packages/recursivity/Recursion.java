@@ -30,4 +30,13 @@ public class Recursion
             return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
         }
     }
+
+    public static double capital(double m, double x, int n)
+    {
+        if (n == 0) {
+            return m;
+        } else {
+            return (1 + x) * capital(m, x, n - 1);
+        }
+    }
 }

@@ -114,4 +114,21 @@ public class SimpleLinkedList
             }
         }
     }
+
+    public int sumSquare(Node h)
+    {
+        if (h == null) {
+            return 0;
+        } else {
+            return (int) Math.pow(h.info, 2) + sumSquare(h.link);
+        }
+    }
+
+    public void showLSLRecursive(Node h)
+    {
+        if (h != null) {
+            System.out.println(h.info);
+            showLSLRecursive(h.link);
+        } 
+    }
 }

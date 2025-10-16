@@ -239,6 +239,8 @@ public class MainMenu
             System.out.println("9. Buscar nodo LDL");
             System.out.println("10. Eliminar nodo LDL");
             System.out.println("11. Insertar dato LDL después referencia");
+            System.out.println("12. Suma cuadrados recursivo (LSL)");
+            System.out.println("13. Mostrar recursivo (LSL)");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -370,6 +372,20 @@ public class MainMenu
                         System.out.println("No ha creado la LDL");
                     }
                     break;
+                case "12":
+                    if (lsl.head != null) {
+                        System.out.println("Suma cuadrados: " + lsl.sumSquare(lsl.head));
+                    } else {
+                        System.out.println("No ha creado la LSL");
+                    }
+                    break;
+                case "13":
+                    if (lsl.head != null) {
+                        lsl.showLSLRecursive(lsl.head);
+                    } else {
+                        System.out.println("No ha creado la LSL");
+                    }
+                    break;
                 default:
                     System.out.println("Opción no válida");
                     break;
@@ -461,7 +477,7 @@ public class MainMenu
     {
         String option;
         int datum;
-        
+        double m, x;
 
         do {
             System.out.println();
@@ -472,6 +488,7 @@ public class MainMenu
             System.out.println("1. Factorial");
             System.out.println("2. Sumatoria");
             System.out.println("3. Fibonacci");
+            System.out.println("4. Capital");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -494,6 +511,18 @@ public class MainMenu
                     datum = input.nextInt();
                     input.nextLine(); // Limpia el búffer
                     System.out.println("Fibonacci = " + Recursion.fibonacciRecursive(datum));
+                    break;
+                case "4":
+                    System.out.print("Años (n): ");
+                    datum = input.nextInt();
+                    input.nextLine(); // Limpia el búffer
+                    System.out.print("Monto inicial (m): ");
+                    m = input.nextDouble();
+                    input.nextLine(); // Limpia el búffer
+                    System.out.print("Interés (%): ");
+                    x = input.nextDouble();
+                    input.nextLine(); // Limpia el búffer
+                    System.out.println("Capital (" + datum + " años)  " + Recursion.capital(m, x, datum));
                     break;
                 default:
                     System.out.println("Opción no válida");
