@@ -39,4 +39,22 @@ public class Recursion
             return (1 + x) * capital(m, x, n - 1);
         }
     }
+
+    public static int mcd(int a, int b)
+    {
+        int m = a > b ? a : b;
+        while (a % m != 0 || b % m != 0) {
+            m--;
+        }
+        return m;
+    }
+
+    public static int mcdEuclidesRecursive(int a, int b)
+    {
+        if (b == 0) {
+            return a;
+        } else {
+            return mcdEuclidesRecursive(b, a % b);
+        }
+    }
 }

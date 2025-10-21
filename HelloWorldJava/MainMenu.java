@@ -476,7 +476,7 @@ public class MainMenu
     public static void menuRecursivity()
     {
         String option;
-        int datum;
+        int datum, a, b;
         double m, x;
 
         do {
@@ -489,6 +489,8 @@ public class MainMenu
             System.out.println("2. Sumatoria");
             System.out.println("3. Fibonacci");
             System.out.println("4. Capital");
+            System.out.println("5. MCD iterativo/Euclides recursivo");
+            System.out.println("6. MCD Euclides iterativo");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -523,6 +525,16 @@ public class MainMenu
                     x = input.nextDouble();
                     input.nextLine(); // Limpia el búffer
                     System.out.println("Capital (" + datum + " años)  " + Recursion.capital(m, x, datum));
+                    break;
+                case "5":
+                    System.out.print("Primer entero : ");
+                    a = input.nextInt();
+                    input.nextLine(); // Limpia el búffer
+                    System.out.print("Segundo entero : ");
+                    b = input.nextInt();
+                    input.nextLine(); // Limpia el búffer
+                    System.out.println("MCD(" + a + ", "+ b +") = " + Recursion.mcd(a, b));
+                    System.out.println("mcdEuclidesRecursivo(" + a + ", "+ b +") = " + Recursion.mcdEuclidesRecursive(a, b));
                     break;
                 default:
                     System.out.println("Opción no válida");
