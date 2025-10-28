@@ -4,6 +4,7 @@ import com.packages.arrays.*;
 import com.packages.linked_list.*;
 import com.packages.stacks_queues.*;
 import com.packages.recursivity.*;
+import com.packages.binary_trees.*;
 
 public class MainMenu 
 {
@@ -35,6 +36,7 @@ public class MainMenu
             System.out.println("12. Listas ligadas");
             System.out.println("13. Pilas y colas");
             System.out.println("14. Recursividad");
+            System.out.println("15. Árboles binarios");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -143,6 +145,9 @@ public class MainMenu
                     break;
                 case "14":
                     menuRecursivity();
+                    break;
+                case "15":
+                    menuTrees();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -535,6 +540,59 @@ public class MainMenu
                     input.nextLine(); // Limpia el búffer
                     System.out.println("MCD(" + a + ", "+ b +") = " + Recursion.mcd(a, b));
                     System.out.println("mcdEuclidesRecursivo(" + a + ", "+ b +") = " + Recursion.mcdEuclidesRecursive(a, b));
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!option.equals("0"));
+    }
+
+    public static void menuTrees()
+    {
+        String option;
+        Tree t = new Tree();
+
+        do {
+            System.out.println();
+            System.out.println("------------------------");
+            System.out.println("Submenú Árboles binarios");
+            System.out.println("------------------------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Crear árbol");
+            System.out.println("2. Preorden");
+            System.out.println("3. Inorden");
+            System.out.println("4. Postorden");
+            System.out.print("Ingrese su opción: ");
+            option = input.nextLine();
+
+            switch (option) {
+                case "0":
+                    break;
+                case "1":
+                    t.root = new NodeTree();
+                    t.loadNode(t.root);
+                    break;
+                case "2":
+                    if (t.root != null) {
+                        t.preorder(t.root);
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "3":
+                    if (t.root != null) {
+                        t.inorder(t.root);
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "4":
+                    if (t.root != null) {
+                        t.postorder(t.root);
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
                     break;
                 default:
                     System.out.println("Opción no válida");
