@@ -563,6 +563,11 @@ public class MainMenu
             System.out.println("2. Preorden");
             System.out.println("3. Inorden");
             System.out.println("4. Postorden");
+            System.out.println("5. Contar nodos");
+            System.out.println("6. Sumar nodos");
+            System.out.println("7. Contar hojas");
+            System.out.println("8. Mayor nodo");
+            System.out.println("9. Árbol en vector");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -590,6 +595,47 @@ public class MainMenu
                 case "4":
                     if (t.root != null) {
                         t.postorder(t.root);
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "5":
+                    if (t.root != null) {
+                        System.out.println("Total nodos: " + t.countNodes(t.root));
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "6":
+                    if (t.root != null) {
+                        System.out.println("Suma nodos: " + t.sumNodes(t.root));
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "7":
+                    if (t.root != null) {
+                        System.out.println("Contar hojas: " + t.countLeaves(t.root));
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "8":
+                    if (t.root != null) {
+                        System.out.println("Mayor nodo: " + t.maxNode(t.root));
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "9":
+                    if (t.root != null) {
+                        int vec[] = new int[20];
+                        int pos[] = {0};
+                        t.arrayTree(t.root, vec, pos);
+                        System.out.println("Vector con nodos");
+                        for (int i = 0; i < pos[0]; i++) {
+                            System.out.print(vec[i] + " | ");
+                        }
                     } else {
                         System.out.println("Árbol vacío");
                     }

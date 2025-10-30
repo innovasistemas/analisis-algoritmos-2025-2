@@ -7,7 +7,7 @@ public class Tree
     public Scanner input = new Scanner(System.in);
     public NodeTree root;
 
-    public void Tree()
+    public Tree()
     {
         root = null;        
     }
@@ -63,6 +63,60 @@ public class Tree
             postorder(node.lb);
             postorder(node.rb);
             System.out.println(node.info);
+        }
+    }
+
+    public int countNodes(NodeTree node)
+    {
+        if (node != null) {
+            return 1 + countNodes(node.lb) + countNodes(node.rb);
+        } else {
+            return 0;
+        }
+    }
+
+    public int sumNodes(NodeTree node)
+    {
+        if (node != null) {
+            return node.info + sumNodes(node.lb) + sumNodes(node.rb);
+        } else {
+            return 0;
+        }
+    }
+
+    public int countLeaves(NodeTree node)
+    {
+        int c = 0;
+        if (node != null) {
+            if (node.lb == null && node.rb == null) {
+                c = 1;
+            }
+            return c + countLeaves(node.lb) + countLeaves(node.rb);
+        } else {
+            return 0;
+        }
+    }
+
+    public int maxNode(NodeTree node)
+    {
+        int m, mLeft, mRight;
+        m = mLeft = mRight = Integer.MIN_VALUE;
+        if (node != null) {
+            if (node.lb != null) mLeft = maxNode(node.lb);
+            if (node.rb != null) mRight = maxNode(node.rb);
+            m = mLeft > mRight ? mLeft : mRight;
+            if (node.info > m) m = node.info;
+        }
+        return m;
+    }
+
+    public void arrayTree(NodeTree node, int v[], int pos[])
+    {
+        if (node != null) {
+            v[pos[0]] = node.info;
+            pos[0]++;
+            arrayTree(node.lb, v, pos);
+            arrayTree(node.rb, v, pos);
         }
     }
 }
