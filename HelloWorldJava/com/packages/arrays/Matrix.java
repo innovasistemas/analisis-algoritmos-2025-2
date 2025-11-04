@@ -2,8 +2,10 @@ package com.packages.arrays;
 
 public class Matrix 
 {
-    int mat[][] = new int[20][20];
-    int m, n;
+    private final int MAX_ROWS = 20;
+    private final int MAX_COLS = 20;
+    private int mat[][] = new int[MAX_ROWS][MAX_COLS];
+    private int m, n;
 
     public Matrix()
     {
@@ -11,13 +13,34 @@ public class Matrix
         n = 0;
     }
 
+    public int getMAX_ROWS() 
+    {
+        return MAX_ROWS;
+    }
+
+    public int getMAX_COLS() 
+    {
+        return MAX_COLS;
+    }
+
     public int[][] getMat() 
     {
         return mat;
     }
 
-    public void setMat(int[][] mat) {
+    public int getMat(int row, int col) 
+    {
+        return mat[row][col];
+    }
+
+    public void setMat(int[][] mat) 
+    {
         this.mat = mat;
+    }
+    
+    public void setMat(int row, int col, int datum)
+    {
+        mat[row][col] = datum;
     }
 
     public int getM() 
@@ -82,6 +105,5 @@ public class Matrix
             System.out.println();
         }
     }
-
-     
+  
 }

@@ -5,6 +5,7 @@ import com.packages.linked_list.*;
 import com.packages.stacks_queues.*;
 import com.packages.recursivity.*;
 import com.packages.binary_trees.*;
+import com.packages.graphs.Graph;
 
 public class MainMenu 
 {
@@ -37,6 +38,7 @@ public class MainMenu
             System.out.println("13. Pilas y colas");
             System.out.println("14. Recursividad");
             System.out.println("15. Árboles binarios");
+            System.out.println("16. Grafos");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -148,6 +150,9 @@ public class MainMenu
                     break;
                 case "15":
                     menuTrees();
+                    break;
+                case "16":
+                    menuGraphs();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -638,6 +643,67 @@ public class MainMenu
                         }
                     } else {
                         System.out.println("Árbol vacío");
+                    }
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!option.equals("0"));
+    }
+
+    public static void menuGraphs()
+    {
+        String option;
+        Graph graph = new Graph();
+        int datum;
+        
+        do {
+            System.out.println();
+            System.out.println("--------------");
+            System.out.println("Submenú Grafos");
+            System.out.println("--------------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Agregar vértice");
+            System.out.println("2. Mostrar vértices");
+            System.out.println("3. Agregar/modificar nodos adyacentes");
+            System.out.println("4. Mostrar matriz de adyacencia");
+            System.out.println("5. Mostrar nodos adyacentes de un vértice");
+            System.out.print("Ingrese su opción: ");
+            option = input.nextLine();
+
+            switch (option) {
+                case "0":
+                    break;
+                case "1":
+                    if (graph.vertex.getN() < graph.vertex.getT()) {
+                        System.out.print("Nodo: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        graph.addNode(datum);
+                    } else {
+                        System.out.println("Grafo lleno");
+                    }
+                    break;
+                case "2":
+                    if (graph.vertex.getN() > 0) {
+                        graph.showGraph();
+                    } else {
+                        System.out.println("Grafo vacío");
+                    }
+                    break;
+                case "3":
+                    if (graph.vertex.getN() > 0) {
+                        graph.addNodeAdjacent();
+                    } else {
+                        System.out.println("Grafo vacío");
+                    }
+                    break;
+                case "4":
+                    if (graph.vertex.getN() > 0) {
+                        graph.showAdjacencyMatrix();
+                    } else {
+                        System.out.println("Grafo vacío");
                     }
                     break;
                 default:
