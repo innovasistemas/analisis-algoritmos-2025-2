@@ -655,8 +655,8 @@ public class MainMenu
     public static void menuGraphs()
     {
         String option;
+        int datum, pos;
         Graph graph = new Graph();
-        int datum;
         
         do {
             System.out.println();
@@ -702,6 +702,22 @@ public class MainMenu
                 case "4":
                     if (graph.vertex.getN() > 0) {
                         graph.showAdjacencyMatrix();
+                    } else {
+                        System.out.println("Grafo vacío");
+                    }
+                    break;
+                case "5":
+                    if (graph.vertex.getN() > 0) {
+                        graph.showGraph();
+                        System.out.print("\nSeleccione un nodo: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        pos = graph.vertex.searchSecuencialVector(datum);
+                        if (pos > -1) {
+                            System.out.println("Total nodos adyacentes de " + datum + ": " + graph.showAdjacentNodes(pos));
+                        } else {
+                            System.out.println("El nodo no existe");
+                        }
                     } else {
                         System.out.println("Grafo vacío");
                     }
