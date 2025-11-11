@@ -16,7 +16,7 @@ public class MainMenu
         String option;
         int datum, position;
         Operations oper = new Operations();
-
+        
         do {
             System.out.println();
             System.out.println("--------------");
@@ -39,6 +39,7 @@ public class MainMenu
             System.out.println("14. Recursividad");
             System.out.println("15. Árboles binarios");
             System.out.println("16. Grafos");
+            System.out.println("17. Vectores");
             System.out.print("Ingrese su opción: ");
             option = input.nextLine();
 
@@ -153,6 +154,9 @@ public class MainMenu
                     break;
                 case "16":
                     menuGraphs();
+                    break;
+                case "17":
+                    menuVector();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -720,6 +724,78 @@ public class MainMenu
                         }
                     } else {
                         System.out.println("Grafo vacío");
+                    }
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!option.equals("0"));
+    }
+
+    public static void menuVector()
+    {
+        String option;
+        Vector v = new Vector();
+        int datum;
+        do {
+            System.out.println();
+            System.out.println("----------------");
+            System.out.println("Submenú Vectores");
+            System.out.println("----------------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Crear");
+            System.out.println("2. Mostrar");
+            System.out.println("3. Ordenar burbuja");
+            System.out.println("4. Ordenar fusión");
+            System.out.println("5. Ordenar inserción directa (baraja)");
+            // System.out.println("4. Mostrar diagonal secundaria");
+            // System.out.println("5. Triangular inferior");
+            System.out.print("Ingrese su opción: ");
+            option = input.nextLine();
+
+            switch (option) {
+                case "0":
+                    break;
+                case "1":
+                    System.out.print("Total datos: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    v.setN(datum);
+                    v.createVector();
+                    break;
+                case "2":
+                    if (v.getN() > 0) {
+                        v.showVector();
+                    } else {
+                        System.out.println("No ha creado el vector");
+                    }
+                    break;
+                case "3":
+                    if (v.getN() > 0) {
+                        v.bubbleSortVector();
+                        System.out.println("Vector ordenado por método Burbuja");
+                        v.showVector();
+                    } else {
+                        System.out.println("No ha creado el vector");
+                    }
+                    break;
+                case "4":
+                    if (v.getN() > 0) {
+                        v.sort(v.getVec(), 0 , v.getN() - 1);
+                        System.out.println("Vector ordenado por método merge");
+                        v.showVector();
+                    } else {
+                        System.out.println("No ha creado el vector");
+                    }
+                    break;
+                case "5":
+                    if (v.getN() > 0) {
+                        v.sortInsertionVector();
+                        System.out.println("Vector ordenado por método baraja");
+                        v.showVector();
+                    } else {
+                        System.out.println("No ha creado el vector");
                     }
                     break;
                 default:

@@ -2,7 +2,7 @@ package com.packages.arrays;
 
 public class Vector 
 {
-    private static final int T = 20; 
+    private static final int T = 10000000; 
     private int vec[] = new int[T];
     private int n;
 
@@ -68,7 +68,7 @@ public class Vector
     public void createVector()
     {
         for (int i = 0; i < n; i++) {
-            vec[i] = (int)(Math.random() * 100);
+            vec[i] = (int)(Math.random() * 10000);
         }
     }
 
@@ -119,6 +119,55 @@ public class Vector
         vec[pos] = datum;
     }
 
+    public void merge(int arr[], int l, int m, int r)
+    {
+        int n1 = m - l + 1;
+        int n2 = r - m;
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+        for (int i = 0; i < n1; ++i) {
+            L[i] = arr[l + i];
+        }
+        for (int j = 0; j < n2; ++j) {
+            R[j] = arr[m + 1 + j];
+        }
+        int i = 0;
+        int j = 0;
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+
+    public void sort(int arr[], int l, int r)
+    {
+        if (l < r) {
+            int m = l + (r - l) / 2;
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+            merge(arr, l, m, r);
+        }
+    }
+// Para hacer uso de la ordenación por fusión:
+// objVec.sort(objVec.getVec(), 0 , objVec.getN() - 1);
+
     public void bubbleSortVector()
     {
         int aux;
@@ -132,6 +181,21 @@ public class Vector
             }
         }
     }
+
+    public void sortInsertionVector()
+    {
+        int i, j, aux;
+        for (i = 1; i < this.n; i++) {
+            j = i - 1;
+            aux = this.vec[i];
+            while (j >= 0 && aux < this.vec[j]) {
+                this.vec[j + 1] = this.vec[j];
+                j--;
+            }
+            this.vec[j + 1] = aux;
+        }
+    }
+
 
     public void deleteVector(int pos)
     {
