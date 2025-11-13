@@ -1,6 +1,8 @@
 import time
 from operations import operations
 from primes import primes
+from random_numbers import RandomNumbers
+from datetime import datetime
 
 BLACK = '\033[30m'
 RED = '\033[31m'
@@ -123,6 +125,7 @@ def menu_primes():
 
 option = ""
 oper = operations()
+rand = RandomNumbers()
 while option != "0":
     print("-" * 14)
     print(GREEN + "Menú principal" + WHITE)
@@ -134,6 +137,7 @@ while option != "0":
     print("4. Factorial")
     print("5. Números primos")
     print("6. Exponencial(x)")
+    print("7. Números congruenciales (aleatorios)")
     print("Ingrese su opción: ", end = "")
     option = input()
     match option:
@@ -168,6 +172,10 @@ while option != "0":
                 print(f"exp({x})=", oper.exponential(n, x))
             else:
                 print("Valor no válido para n")
+        case "7":
+                print(f"Generador de números congruenciales")
+                now = datetime.now()
+                rand.random_number(10, datetime.timestamp(now), 7 ** 5, 0, 2 ** 31 -1)
         case _:
             print(f"{RED}Opción no válida{WHITE}")
 

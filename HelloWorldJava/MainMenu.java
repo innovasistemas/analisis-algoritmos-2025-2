@@ -749,6 +749,7 @@ public class MainMenu
             System.out.println("3. Ordenar burbuja");
             System.out.println("4. Ordenar fusión");
             System.out.println("5. Ordenar inserción directa (baraja)");
+            System.out.println("6. Ordenar selección directa");
             // System.out.println("4. Mostrar diagonal secundaria");
             // System.out.println("5. Triangular inferior");
             System.out.print("Ingrese su opción: ");
@@ -793,6 +794,15 @@ public class MainMenu
                     if (v.getN() > 0) {
                         v.sortInsertionVector();
                         System.out.println("Vector ordenado por método baraja");
+                        v.showVector();
+                    } else {
+                        System.out.println("No ha creado el vector");
+                    }
+                    break;
+                case "6":
+                    if (v.getN() > 0) {
+                        v.sortSelectionVector();
+                        System.out.println("Vector ordenado por método selección");
                         v.showVector();
                     } else {
                         System.out.println("No ha creado el vector");

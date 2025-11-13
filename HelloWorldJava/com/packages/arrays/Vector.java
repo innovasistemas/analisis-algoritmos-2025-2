@@ -196,6 +196,23 @@ public class Vector
         }
     }
 
+    public void sortSelectionVector()
+    {
+        int i, j, k, m;
+        for (i = 0; i < n - 1; i++) {
+            m = vec[i];
+            k = i;
+            for (j = i + 1; j < n; j++) {
+                if (vec[j] < m) {
+                    m = vec[j];
+                    k = j;
+                }
+            }
+            vec[k] = vec[i];
+            vec[i] = m;
+        }
+    }
+
 
     public void deleteVector(int pos)
     {
